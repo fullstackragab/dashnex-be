@@ -10,6 +10,11 @@ class CartItem {
         public int $amount,
     ) {}
 
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
     public function setAmount(int $amount)
     {
         $this->amount = $amount;
@@ -23,4 +28,10 @@ class CartItem {
 
         return $this;
     }
+
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
 }
