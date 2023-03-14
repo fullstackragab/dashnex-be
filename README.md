@@ -20,7 +20,7 @@ The server would be available on http://localhost:8000 with the Swagger on http:
 
 ## Useful information:
 
-- Swagger is available on `https://127.0.0.1:8000/api/` page.
+- Swagger is available on `http://127.0.0.1:8000/api/` page.
 - The database is included and located in `db` folder.
 - Images are uploaded to `public/images` folder.
 - To run the project run `symfony serve` or `docker-compose up`
