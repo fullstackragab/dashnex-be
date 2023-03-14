@@ -18,11 +18,13 @@ use App\State\CartStateProcessor;
         new GetCollection(paginationEnabled: false),
         new Put(
             processor: CartStateProcessor::class,
-            uriTemplate: '/product/{id}/cart',
+            uriTemplate: '/products/{id}/cart',
             formats: ['json'],
             openapiContext: [
+                'summary' => 'Puts Product into the cart',
+                'description' => "Requires 'amount' in the Request Body",
                 'requestBody' => [
-                    'description' => 'Puts Product to the Cart',
+                    'description' => 'Puts Product into the Cart',
                     'content' => [
                          'application/json' => [
                             'schema' => [
@@ -39,7 +41,7 @@ use App\State\CartStateProcessor;
         ),
         new Delete(
             processor: CartStateProcessor::class, 
-            uriTemplate: '/product/{id}/cart', 
+            uriTemplate: '/products/{id}/cart', 
             openapi: new Operation(
                 summary: 'Removes Product from the cart',
                 description: 'Removes Product from the cart. Doesn\'t require any request body',
