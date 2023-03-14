@@ -1,6 +1,6 @@
 # DashNex test project backend.
 
-Create a fork of this project, make changes and create a Pull Request to the initial project.
+Create a FORK of this project (you'll need Bitbucket account), clone the project and run it before you proceed to task execution. You can check the code and when you are ready click the link provided to see the task description.
 
 # Installation
 
