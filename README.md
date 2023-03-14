@@ -16,10 +16,9 @@ Create a FORK of this project (you'll need Bitbucket account), clone the project
 - Run `composer install` to install vendor bundles
 - Run `symfony serve` to start the development server
 
-The server would be available on `http://localhost:8000` with the Swagger on `http://localhost:8000/api`
-
 ## Useful information:
 
+- The server would be available on `http://localhost:8000` with the Swagger on `http://localhost:8000/api`
 - The database is included and located in `db` folder.
 - Images are uploaded to `public/images` folder.
 - To run the project run `symfony serve` or `docker-compose up`
