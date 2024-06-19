@@ -17,6 +17,18 @@ use Doctrine\Common\Collections\Collection;
             openapi: new Operation(
                 summary: 'Retrieves cart content'
             )
+            ),
+        new Post(
+            uriTemplate: '/cart',
+            openapi: new Operation(
+                summary: 'Adds a product to the cart'
+            )
+        ),
+        new Delete(
+            uriTemplate: '/cart/{id}',
+            openapi: new Operation(
+                summary: 'Removes a product from the cart'
+            )
         )
     ]
 )]
@@ -41,12 +53,16 @@ class Cart
     }
 
     public function addItem(CartItem $cartItem) {
-        $this->items->removeElement($cartItem);
+        if (!$this->items->contains($cartItem)) {
+            $this->items->add($cartItem);
+        }
 
         return $this;
     }
 
     public function removeItem(CartItem $cartItem) {
-        $this->items->add($cartItem);
+        if ($this->items->contains($cartItem)) {
+            $this->items->removeElement($cartItem);
+        }
     }
 }

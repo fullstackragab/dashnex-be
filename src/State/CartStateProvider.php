@@ -23,4 +23,26 @@ class CartStateProvider implements ProviderInterface
             ),
         ];
     }
+
+    public function process(mixed $data, Operation $operation, array $uriVariables = [], array $context = []): mixed
+    {
+        if ($operation->getMethod() === 'POST') {
+            $cart = $data;
+            $product = $operation->getPayload();
+            $cartItem = new CartItem(
+                product: $product,
+                amount: 1
+            );
+            $cart->addItem($cartItem);
+            return $cart;
+        } elseif ($operation->getMethod() === 'DELETE') {
+            $cart = $data;
+            $cartItemId = $uriVariables['id'];
+            $cartItem = $cart->getItems()->findBy(['id' => $cartItemId])[0];
+            $cart->removeItem($cartItem);
+            return $cart;
+        }
+
+        return $data;
+    }
 }
